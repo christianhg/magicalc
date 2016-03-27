@@ -1,11 +1,11 @@
 # magicalc
 
-Install:
+Installs necessary dependencies:
 ```
 $ npm install
 ```
 
-Develop:
+Runs TypeScript compiler, starts the server, launches the browser and watches for changes:
 ```
 $ npm start
 ```
