@@ -41,4 +41,19 @@ export class CardService {
         });
       });
   }
+
+  public getCardsWithHighestCMC(): Observable<Card[]> {
+    return this.http.get('http://mtgjson.com/json/AllCards.json')
+      .map((res: Response) => {
+        return _.values(res.json())
+      })
+      .map((cards: Card[]) => {
+        const highestCMC: number = _.max(cards, (card: Card) => {
+          return card.cmc;
+        }).cmc;
+        return _.filter(cards, (card: Card) => {
+          return card.cmc === highestCMC;
+        });
+      });
+  }
 }

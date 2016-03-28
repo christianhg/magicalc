@@ -1,5 +1,14 @@
 ohai world, this is {{title}}
 
+<dl *ngIf="cardsWithHighestCMC">
+  <dt>Card with highest CMC</dt>
+  <dd>
+    <ul>
+      <li *ngFor="#card of cardsWithHighestCMC">{{card.name}} ({{card.cmc}})</li>
+    </ul>
+  </dd>
+</dl>
+
 <dl *ngIf="cardWithLongestName">
   <dt>Card with longst name</dt>
   <dd>{{cardWithLongestName.name}} ({{cardWithLongestName.name.length}})</dd>

@@ -18,6 +18,7 @@ import * as _ from 'lodash';
 export class MagicalcComponent implements OnInit {
   public title: string = 'magicalc';
   public cards: Card[];
+  public cardsWithHighestCMC: Card[];
   public cardWithLongestName: Card;
   public cardWithMostPower: Card;
 
@@ -28,6 +29,7 @@ export class MagicalcComponent implements OnInit {
     this.getCards();
     this.getCardWithMostPower();
     this.getCardWithLongestName();
+    this.getCardsWithHighestCMC();
   }
 
   public getCards(): void {
@@ -65,6 +67,21 @@ export class MagicalcComponent implements OnInit {
       .subscribe(
         (card: Card) => {
           this.cardWithMostPower = card;
+        }
+      );
+  }
+
+  private getCardsWithHighestCMC(): void {
+    this.cardService.getCardsWithHighestCMC()
+      .subscribe(
+        (cards: Card[]) => {
+          this.cardsWithHighestCMC = cards;
+        },
+        (error) => {
+          console.log(error);
+        },
+        () => {
+          console.log('completed');
         }
       );
   }
