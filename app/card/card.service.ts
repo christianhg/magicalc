@@ -8,21 +8,23 @@ import {Card} from './card';
 @Injectable()
 
 export class CardService {
+  private cardsObservable: Observable<Card[]>;
+
   constructor(
     private http: Http) { }
 
   public getCards(): Observable<Card[]> {
-    return this.http.get('http://mtgjson.com/json/AllCards.json')
-      .map((res: Response) => {
-        return _.values(res.json());
-      });
+    if(!this.cardsObservable) {
+      this.cardsObservable = this.http.get('http://mtgjson.com/json/AllCards.json')
+        .map((res: Response) => {
+          return _.values(res.json());
+        });
+    }
+    return this.cardsObservable;
   }
 
   public getCardWithLongestName(): Observable<Card> {
-    return this.http.get('http://mtgjson.com/json/AllCards.json')
-      .map((res: Response) => {
-        return _.values(res.json());
-      })
+    return this.getCards()
       .map((cards: Card[]) => {
         return _.max(cards, (card: Card) => {
           return card.name.length;
@@ -31,10 +33,7 @@ export class CardService {
   }
 
   public getCardWithMostPower(): Observable<Card> {
-    return this.http.get('http://mtgjson.com/json/AllCards.json')
-      .map((res: Response) => {
-        return _.values(res.json());
-      })
+    return this.getCards()
       .map((cards: Card[]) => {
         return _.max(cards, (card: Card) => {
           return card.power;
@@ -43,10 +42,7 @@ export class CardService {
   }
 
   public getCardsWithHighestCMC(): Observable<Card[]> {
-    return this.http.get('http://mtgjson.com/json/AllCards.json')
-      .map((res: Response) => {
-        return _.values(res.json())
-      })
+    return this.getCards()
       .map((cards: Card[]) => {
         const highestCMC: number = _.max(cards, (card: Card) => {
           return card.cmc;
