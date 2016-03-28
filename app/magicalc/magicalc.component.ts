@@ -18,12 +18,14 @@ import * as _ from 'lodash';
 export class MagicalcComponent implements OnInit {
   public title: string = 'magicalc';
   public cards: Card[];
+  public cardWithMostPower: Card;
 
   constructor(
     private cardService: CardService) { }
 
   public ngOnInit(): void {
     this.getCards();
+    this.getCardWithMostPower();
   }
 
   public getCards(): void {
@@ -37,6 +39,15 @@ export class MagicalcComponent implements OnInit {
         },
         () => {
           console.log('completed');
+        }
+      );
+  }
+
+  private getCardWithMostPower(): void {
+    this.cardService.getCardWithMostPower()
+      .subscribe(
+        (card: Card) => {
+          this.cardWithMostPower = card;
         }
       );
   }

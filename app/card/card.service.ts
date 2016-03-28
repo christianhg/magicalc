@@ -17,4 +17,16 @@ export class CardService {
         return _.values(res.json());
       });
   }
+
+  public getCardWithMostPower(): Observable<Card> {
+    return this.http.get('http://mtgjson.com/json/AllCards.json')
+      .map((res: Response) => {
+        return _.values(res.json());
+      })
+      .map((cards: Card[]) => {
+        return _.max(cards, (card: Card) => {
+          return card.power;
+        });
+      });
+  }
 }

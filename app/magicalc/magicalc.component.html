@@ -1,5 +1,10 @@
 ohai world, this is {{title}}
 
+<dl *ngIf="cardWithMostPower">
+  <dt>Card with most power</dt>
+  <dd>{{cardWithMostPower.name}} ({{cardWithMostPower.power}})</dd>
+</dl>
+
 <ol *ngIf="cards">
   <li *ngFor="#card of cards">{{card.name}}</li>
 </ol>
