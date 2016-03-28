@@ -1,12 +1,43 @@
-import {Component} from 'angular2/core';
+import {Component, OnInit} from 'angular2/core';
+import {Http, Headers, HTTP_PROVIDERS, Response} from 'angular2/http';
+
+import {CardService} from '../card/card.service';
+import {Card} from '../card/card';
 
 import * as _ from 'lodash';
 
 @Component({
   selector: 'magicalc',
-  templateUrl: 'app/magicalc/magicalc.component.html'
+  templateUrl: 'app/magicalc/magicalc.component.html',
+  providers: [
+    HTTP_PROVIDERS,
+    CardService
+  ]
 })
 
-export class MagicalcComponent {
+export class MagicalcComponent implements OnInit {
   public title: string = 'magicalc';
+  public cards: Card[];
+
+  constructor(
+    private cardService: CardService) { }
+
+  public ngOnInit(): void {
+    this.getCards();
+  }
+
+  public getCards(): void {
+    this.cardService.getCards()
+      .subscribe(
+        (cards: Card[]) => {
+          this.cards = cards;
+        },
+        (error) => {
+          console.log(error);
+        },
+        () => {
+          console.log('completed');
+        }
+      );
+  }
 }

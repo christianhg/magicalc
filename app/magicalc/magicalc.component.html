@@ -1,1 +1,5 @@
 ohai world, this is {{title}}
+
+<ol *ngIf="cards">
+  <li *ngFor="#card of cards">{{card.name}}</li>
+</ol>
