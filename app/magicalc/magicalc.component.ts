@@ -18,6 +18,7 @@ import * as _ from 'lodash';
 export class MagicalcComponent implements OnInit {
   public title: string = 'magicalc';
   public cards: Card[];
+  public cardWithLongestName: Card;
   public cardWithMostPower: Card;
 
   constructor(
@@ -26,6 +27,7 @@ export class MagicalcComponent implements OnInit {
   public ngOnInit(): void {
     this.getCards();
     this.getCardWithMostPower();
+    this.getCardWithLongestName();
   }
 
   public getCards(): void {
@@ -33,6 +35,21 @@ export class MagicalcComponent implements OnInit {
       .subscribe(
         (cards: Card[]) => {
           this.cards = cards;
+        },
+        (error) => {
+          console.log(error);
+        },
+        () => {
+          console.log('completed');
+        }
+      );
+  }
+
+  private getCardWithLongestName(): void {
+    this.cardService.getCardWithLongestName()
+      .subscribe(
+        (card: Card) => {
+          this.cardWithLongestName = card;
         },
         (error) => {
           console.log(error);

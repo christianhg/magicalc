@@ -1,5 +1,10 @@
 ohai world, this is {{title}}
 
+<dl *ngIf="cardWithLongestName">
+  <dt>Card with longst name</dt>
+  <dd>{{cardWithLongestName.name}} ({{cardWithLongestName.name.length}})</dd>
+</dl>
+
 <dl *ngIf="cardWithMostPower">
   <dt>Card with most power</dt>
   <dd>{{cardWithMostPower.name}} ({{cardWithMostPower.power}})</dd>
