@@ -27,7 +27,6 @@ export class MagicalcComponent implements OnInit {
     private cardService: CardService) { }
 
   public ngOnInit(): void {
-    this.getCards();
     this.getCardWithMostPower();
     this.getCardsWithLongestName();
     this.getCardsWithHighestCMC();
