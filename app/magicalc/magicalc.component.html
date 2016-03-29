@@ -19,6 +19,15 @@ ohai world, this is {{title}}
   <dd>{{cardWithMostPower.name}} ({{cardWithMostPower.power}})</dd>
 </dl>
 
+<dl *ngIf="cardsWithHighestPMR">
+  <dt>Cards with highest PMR (Power-Mana Ratio)</dt>
+  <dd>
+    <ol>
+      <li *ngFor="#card of cardsWithHighestPMR">{{card.name}} ({{card.power}}/{{card.cmc}} = {{card.pmr}})</li>
+    </ol>
+  </dd>
+</dl>
+
 <ol *ngIf="cards">
   <li *ngFor="#card of cards">{{card.name}}</li>
 </ol>

@@ -52,4 +52,31 @@ export class CardService {
         });
       });
   }
+
+  public getCardsWithHighestPMR(): Observable<Card[]> {
+    return this.getCards()
+      .map((cards: Card[]) => {
+        return _.filter(cards, (card: Card) => {
+          const power: number = parseInt(card.power);
+          if (power && card.cmc && !isNaN(power)) {
+            if (card.cmc > 0 && power > 0) {
+              card.pmr = power / card.cmc;
+            }
+            else {
+              card.pmr = power;
+            }
+            return true;
+          }
+          return false;
+        });
+      })
+      .map((cards: Card[]) => {
+        return _.sortByOrder(cards, (card: Card) => {
+          return card.pmr;
+        }, 'desc');
+      })
+      .map((cards: Card[]) => {
+        return _.slice(cards, 0, 10);
+      });
+  }
 }

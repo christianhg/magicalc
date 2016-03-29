@@ -1,8 +1,9 @@
 export interface Card {
   cmc: number;
   name: string;
-  power: number;
+  pmr: number;
+  power: string;
   text: string;
-  toughness: number;
+  toughness: string;
   type: string;
 }
