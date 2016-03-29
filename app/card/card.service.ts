@@ -35,12 +35,19 @@ export class CardService {
       });
   }
 
-  public getCardWithMostPower(): Observable<Card> {
+  public getCardsWithMostPower(): Observable<Card[]> {
     return this.getCards()
       .map((cards: Card[]) => {
-        return _.max(cards, (card: Card) => {
-          return card.power;
-        });
+        return _.sortByOrder(cards, (card: Card) => {
+          const power: number = parseInt(card.power);
+          if (power && !isNaN(power)) {
+            return card.power;
+          }
+          return false;
+        }, 'desc');
+      })
+      .map((cards: Card[]) => {
+        return _.slice(cards, 0, 10);
       });
   }
 

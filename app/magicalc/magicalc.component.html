@@ -18,9 +18,13 @@ ohai world, this is {{title}}
   </dd>
 </dl>
 
-<dl *ngIf="cardWithMostPower">
-  <dt>Card with most power</dt>
-  <dd>{{cardWithMostPower.name}} ({{cardWithMostPower.power}})</dd>
+<dl *ngIf="cardsWithMostPower">
+  <dt>Cards with most power</dt>
+  <dd>
+    <ol>
+      <li *ngFor="#card of cardsWithMostPower">{{card.name}} ({{card.power}})</li>
+    </ol>
+  </dd>
 </dl>
 
 <dl *ngIf="cardsWithHighestPMR">
