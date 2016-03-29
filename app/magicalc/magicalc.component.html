@@ -9,9 +9,13 @@ ohai world, this is {{title}}
   </dd>
 </dl>
 
-<dl *ngIf="cardWithLongestName">
-  <dt>Card with longst name</dt>
-  <dd>{{cardWithLongestName.name}} ({{cardWithLongestName.name.length}})</dd>
+<dl *ngIf="cardsWithLongestName">
+  <dt>Cards with longst name</dt>
+  <dd>
+    <ol>
+      <li *ngFor="#card of cardsWithLongestName">{{card.name}} ({{card.name.length}})</li>
+    </ol>
+  </dd>
 </dl>
 
 <dl *ngIf="cardWithMostPower">

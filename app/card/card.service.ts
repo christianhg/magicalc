@@ -23,12 +23,15 @@ export class CardService {
     return this.cardsObservable;
   }
 
-  public getCardWithLongestName(): Observable<Card> {
+  public getCardsWithLongestName(): Observable<Card[]> {
     return this.getCards()
       .map((cards: Card[]) => {
-        return _.max(cards, (card: Card) => {
+        return _.sortByOrder(cards, (card: Card) => {
           return card.name.length;
-        });
+        }, 'desc');
+      })
+      .map((cards: Card[]) => {
+        return _.slice(cards, 0, 10);
       });
   }
 
