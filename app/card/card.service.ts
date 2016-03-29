@@ -54,12 +54,15 @@ export class CardService {
   public getCardsWithHighestCMC(): Observable<Card[]> {
     return this.getCards()
       .map((cards: Card[]) => {
-        const highestCMC: number = _.max(cards, (card: Card) => {
-          return card.cmc;
-        }).cmc;
-        return _.filter(cards, (card: Card) => {
-          return card.cmc === highestCMC;
-        });
+        return _.sortByOrder(cards, (card: Card) => {
+          if (card.cmc > 0) {
+            return card.cmc;
+          }
+          return false;
+        }, 'desc');
+      })
+      .map((cards: Card[]) => {
+        return _.slice(cards, 0, 10);
       });
   }
 
