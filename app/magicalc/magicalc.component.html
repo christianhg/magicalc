@@ -36,6 +36,18 @@
   </dd>
 </dl>
 
+<dl *ngIf="randomCards">
+  <dt>Random cards</dt>
+  <dd>
+    <dl *ngFor="#card of randomCards">
+      <dt>{{card.name}}</dt>
+      <dd>
+        <pre>{{card | json}}</pre>
+      </dd>
+    </dl>
+  </dd>
+</dl>
+
 <ol *ngIf="cards">
   <li *ngFor="#card of cards">{{card.name}}</li>
 </ol>

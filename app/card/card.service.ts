@@ -23,6 +23,16 @@ export class CardService {
     return this.cardsObservable;
   }
 
+  public getRandomCards(): Observable<Card[]> {
+    return this.getCards()
+      .map((cards: Card[]) => {
+        return _.sample(cards, 10);
+      })
+      .map((cards: Card[]) => {
+        return _.slice(cards, 0, 10);
+      })
+  }
+
   public getCardsWithLongestName(): Observable<Card[]> {
     return this.getCards()
       .map((cards: Card[]) => {
