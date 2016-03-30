@@ -4,6 +4,9 @@ import {Http, Headers, HTTP_PROVIDERS, Response} from 'angular2/http';
 import {CardService} from '../card/card.service';
 import {Card} from '../card/card';
 
+import {LandService} from '../land/land.service';
+import {Land} from '../land/land';
+
 import * as _ from 'lodash';
 
 @Component({
@@ -11,7 +14,8 @@ import * as _ from 'lodash';
   templateUrl: 'app/magicalc/magicalc.component.html',
   providers: [
     HTTP_PROVIDERS,
-    CardService
+    CardService,
+    LandService
   ]
 })
 
@@ -23,9 +27,11 @@ export class MagicalcComponent implements OnInit {
   public cardsWithMostPower: Card[];
   public cardsWithHighestPMR: Card[];
   public randomCards: Card[];
+  public landsWithMostColorIdentities: Land[];
 
   constructor(
-    private cardService: CardService) { }
+    private cardService: CardService,
+    private landService: LandService) { }
 
   public ngOnInit(): void {
     this.getCardsWithMostPower();
@@ -33,6 +39,7 @@ export class MagicalcComponent implements OnInit {
     this.getCardsWithHighestCMC();
     this.getCardsWithHighestPMR();
     this.getRandomCards();
+    this.getLandsWithMostColorIdentities();
   }
 
   public getCards(): void {
@@ -115,6 +122,21 @@ export class MagicalcComponent implements OnInit {
       .subscribe(
         (cards: Card[]) => {
           this.cardsWithHighestPMR = cards;
+        },
+        (error) => {
+          console.log(error);
+        },
+        () => {
+          console.log('completed');
+        }
+      );
+  }
+
+  private getLandsWithMostColorIdentities(): void {
+    this.landService.getLandsWithMostColorIdentities()
+      .subscribe(
+        (lands: Land[]) => {
+          this.landsWithMostColorIdentities = lands;
         },
         (error) => {
           console.log(error);
