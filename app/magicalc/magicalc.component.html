@@ -29,11 +29,11 @@
   </dd>
 </dl>
 
-<dl *ngIf="cardsWithLongestText">
-  <dt>Cards with longst text</dt>
+<dl *ngIf="cardsWithMostText">
+  <dt>Cards with most text</dt>
   <dd>
     <ol>
-      <li *ngFor="#card of cardsWithLongestText">{{card.name}} ({{card.text}})</li>
+      <li *ngFor="#card of cardsWithMostText">{{card.name}} ({{card.text}})</li>
     </ol>
   </dd>
 </dl>
