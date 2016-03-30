@@ -1,10 +1,10 @@
 export interface Card {
-  cmc: number;
-  colorIdentity: string[];
-  colors: string[];
+  cmc?: number;
+  colorIdentity?: string[];
+  colors?: string[];
   imageName: string;
   layout: string;
-  manaCost: string;
+  manaCost?: string;
   mciNumber?: string;
   name: string;
   pmr?: number;
