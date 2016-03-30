@@ -1,5 +1,5 @@
 import {Card} from '../card/card';
 
-interface Sorcery extends Card {
-  
+export interface Sorcery extends Card {
+
 }
