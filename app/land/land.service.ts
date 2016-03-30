@@ -17,4 +17,16 @@ export class LandService {
         });
       });
   }
+
+  public getLandsWithMostColorIdentities(): Observable<Land[]> {
+    return this.getLands()
+      .map((lands: Land[]) => {
+        return _.sortByOrder(lands, (land: Land) => {
+          return _.size(land.colorIdentity);
+        }, 'desc');
+      })
+      .map((lands: Land[]) => {
+        return _.slice(lands, 0, 10);
+      });
+  }
 }
