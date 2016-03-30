@@ -24,6 +24,7 @@ export class MagicalcComponent implements OnInit {
   public cards: Card[];
   public cardsWithHighestCMC: Card[];
   public cardsWithLongestName: Card[];
+  public cardsWithMostText: Card[];
   public cardsWithMostPower: Card[];
   public cardsWithHighestPMR: Card[];
   public randomCards: Card[];
@@ -36,6 +37,7 @@ export class MagicalcComponent implements OnInit {
   public ngOnInit(): void {
     this.getCardsWithMostPower();
     this.getCardsWithLongestName();
+    this.getCardsWithMostText();
     this.getCardsWithHighestCMC();
     this.getCardsWithHighestPMR();
     this.getRandomCards();
@@ -77,6 +79,21 @@ export class MagicalcComponent implements OnInit {
       .subscribe(
         (cards: Card[]) => {
           this.cardsWithLongestName = cards;
+        },
+        (error) => {
+          console.log(error);
+        },
+        () => {
+          console.log('completed');
+        }
+      );
+  }
+
+  private getCardsWithMostText(): void {
+    this.cardService.getCardsWithMostText()
+      .subscribe(
+        (cards: Card[]) => {
+          this.cardsWithMostText = cards;
         },
         (error) => {
           console.log(error);
