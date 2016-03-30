@@ -1,6 +1,7 @@
 import {Injectable} from 'angular2/core';
 import {Observable} from 'rxjs/Rx';
 
+import {Card} from '../card/card';
 import {CardService} from '../card/card.service';
 import {Land} from './land';
 
@@ -11,9 +12,9 @@ export class LandService {
 
   public getLands(): Observable<Land[]> {
     return this.cardService.getCards()
-      .map((lands: Land[]) => {
-        return _.filter(lands, (land: Land) => {
-          return _.includes(land.types, 'Land');
+      .map((cards: Card[]) => {
+        return _.filter(cards, (card: Card) => {
+          return _.includes(card.types, 'Land');
         });
       });
   }
