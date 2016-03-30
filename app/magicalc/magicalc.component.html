@@ -1,5 +1,16 @@
 <h1>ohai world, this is {{title}}</h1>
 
+<dl *ngIf="landsWithMostColorIdentities">
+  <dt>Lands with most color identities</dt>
+  <dd>
+    <ol>
+      <li *ngFor="#land of landsWithMostColorIdentities">
+        {{land.name}} (<span *ngFor="#colorIdentity of land.colorIdentity">{{colorIdentity}}</span>)
+      </li>
+    </ol>
+  </dd>
+</dl>
+
 <dl *ngIf="cardsWithHighestCMC">
   <dt>Card with highest CMC</dt>
   <dd>
