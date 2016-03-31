@@ -1,5 +1,8 @@
 import {Card} from '../card/card';
 
+/**
+ * TODO: Create proper type for translations property.
+ */
 export interface Set {
   booster?: string[];
   border: string;
