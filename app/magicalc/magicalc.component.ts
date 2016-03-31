@@ -7,6 +7,9 @@ import {Card} from '../card/card';
 import {LandService} from '../land/land.service';
 import {Land} from '../land/land';
 
+import {SetService} from '../set/set.service';
+import {Set} from '../set/set';
+
 import * as _ from 'lodash';
 
 @Component({
@@ -15,7 +18,8 @@ import * as _ from 'lodash';
   providers: [
     HTTP_PROVIDERS,
     CardService,
-    LandService
+    LandService,
+    SetService
   ]
 })
 
@@ -32,7 +36,8 @@ export class MagicalcComponent implements OnInit {
 
   constructor(
     private cardService: CardService,
-    private landService: LandService) { }
+    private landService: LandService,
+    private setService: SetService) { }
 
   public ngOnInit(): void {
     this.getCardsWithMostPower();
