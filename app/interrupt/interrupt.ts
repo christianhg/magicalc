@@ -1,5 +1,5 @@
 import {Card} from '../card/card';
 
-export interface Interrup extends Card {
-  
+export interface Interrupt extends Card {
+
 }
