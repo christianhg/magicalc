@@ -17,7 +17,6 @@ export class SetService {
     if(!this.setsObservable) {
       this.setsObservable = this.http.get('http://mtgjson.com/json/AllSetsArray-x.json')
         .map((res: Response) => {
-          //return _.values(res.json());
           return res.json();
         });
     }
