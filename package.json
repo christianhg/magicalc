@@ -14,7 +14,7 @@
     "scss": "node-sass --output-style compressed scss/styles.scss styles.css",
     "typings": "typings",
     "postinstall": "typings install",
-    "watch:scss": "onchange 'scss/*.scss' -- npm run scss"
+    "watch:scss": "onchange 'scss/**/*.scss' -- npm run scss"
   },
   "license": "MIT",
   "devDependencies": {
