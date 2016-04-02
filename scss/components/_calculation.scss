@@ -10,15 +10,18 @@
   }
 
   &--heading {
-    cursor: pointer;
+
     font-family: $font-family-display;
     margin: {
       bottom: 2px;
     }
     text-transform: uppercase;
 
-    &:hover {
-      background: darken($color-white, 10%);
+    .closed & {
+      &:hover {
+        background: darken($color-white, 10%);
+        cursor: pointer;
+      }
     }
   }
 
