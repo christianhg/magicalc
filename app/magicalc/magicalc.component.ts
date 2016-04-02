@@ -58,107 +58,121 @@ export class MagicalcComponent implements OnInit {
   }
 
   public getRandomCards(): void {
-    this.cardService.getRandomCards()
-      .subscribe(
-        (cards: Card[]) => {
-          this.randomCards = cards;
-        },
-        (error) => {
-          console.log(error);
-        },
-        () => {
-          console.log('completed');
-        }
-      );
+    if (!this.randomCards) {
+      this.cardService.getRandomCards()
+        .subscribe(
+          (cards: Card[]) => {
+            this.randomCards = cards;
+          },
+          (error) => {
+            console.log(error);
+          },
+          () => {
+            console.log('completed');
+          }
+        );
+    }
   }
 
   public getCardsWithLongestName(): void {
-    this.cardService.getCardsWithLongestName()
-      .subscribe(
-        (cards: Card[]) => {
-          this.cardsWithLongestName = cards;
-        },
-        (error) => {
-          console.log(error);
-        },
-        () => {
-          console.log('completed');
-        }
-      );
+    if (!this.cardsWithLongestName) {
+      this.cardService.getCardsWithLongestName()
+        .subscribe(
+          (cards: Card[]) => {
+            this.cardsWithLongestName = cards;
+          },
+          (error) => {
+            console.log(error);
+          },
+          () => {
+            console.log('completed');
+          }
+        );
+    }
   }
 
   public getCardsWithMostText(): void {
-    this.cardService.getCardsWithMostText()
-      .subscribe(
-        (cards: Card[]) => {
-          this.cardsWithMostText = cards;
-        },
-        (error) => {
-          console.log(error);
-        },
-        () => {
-          console.log('completed');
-        }
-      );
+    if (!this.cardsWithMostText) {
+      this.cardService.getCardsWithMostText()
+        .subscribe(
+          (cards: Card[]) => {
+            this.cardsWithMostText = cards;
+          },
+          (error) => {
+            console.log(error);
+          },
+          () => {
+            console.log('completed');
+          }
+        );
+    }
   }
 
   public getCardsWithMostPower(): void {
-    this.cardService.getCardsWithMostPower()
-      .subscribe(
-        (cards: Card[]) => {
-          this.cardsWithMostPower = cards;
-        },
-        (error) => {
-          console.log(error);
-        },
-        () => {
-          console.log('completed');
-        }
-      );
+    if (!this.cardsWithMostPower) {
+      this.cardService.getCardsWithMostPower()
+        .subscribe(
+          (cards: Card[]) => {
+            this.cardsWithMostPower = cards;
+          },
+          (error) => {
+            console.log(error);
+          },
+          () => {
+            console.log('completed');
+          }
+        );
+    }
   }
 
   public getCardsWithHighestCMC(): void {
-    this.cardService.getCardsWithHighestCMC()
-      .subscribe(
-        (cards: Card[]) => {
-          this.cardsWithHighestCMC = cards;
-        },
-        (error) => {
-          console.log(error);
-        },
-        () => {
-          console.log('completed');
-        }
-      );
+    if (!this.cardsWithHighestCMC) {
+      this.cardService.getCardsWithHighestCMC()
+        .subscribe(
+          (cards: Card[]) => {
+            this.cardsWithHighestCMC = cards;
+          },
+          (error) => {
+            console.log(error);
+          },
+          () => {
+            console.log('completed');
+          }
+        );
+    }
   }
 
   public getCardsWithHighestPMR(): void {
-    this.cardService.getCardsWithHighestPMR()
-      .subscribe(
-        (cards: Card[]) => {
-          this.cardsWithHighestPMR = cards;
-        },
-        (error) => {
-          console.log(error);
-        },
-        () => {
-          console.log('completed');
-        }
-      );
+    if (!this.cardsWithHighestPMR) {
+      this.cardService.getCardsWithHighestPMR()
+        .subscribe(
+          (cards: Card[]) => {
+            this.cardsWithHighestPMR = cards;
+          },
+          (error) => {
+            console.log(error);
+          },
+          () => {
+            console.log('completed');
+          }
+        );
+    }
   }
 
   public getLandsWithMostColorIdentities(): void {
-    this.landService.getLandsWithMostColorIdentities()
-      .subscribe(
-        (lands: Land[]) => {
-          this.landsWithMostColorIdentities = lands;
-        },
-        (error) => {
-          console.log(error);
-        },
-        () => {
-          console.log('completed');
-        }
-      );
+    if (!this.landsWithMostColorIdentities) {
+      this.landService.getLandsWithMostColorIdentities()
+        .subscribe(
+          (lands: Land[]) => {
+            this.landsWithMostColorIdentities = lands;
+          },
+          (error) => {
+            console.log(error);
+          },
+          () => {
+            console.log('completed');
+          }
+        );
+    }
   }
 }
