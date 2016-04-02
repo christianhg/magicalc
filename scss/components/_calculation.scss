@@ -1,8 +1,10 @@
 .calculation {
+  color: $color-purple;
+
   & > div {
     background: $color-white;
     margin: {
-      bottom: 3px;
+      bottom: 2px;
     }
     padding: 10px;
   }
@@ -10,10 +12,13 @@
   &--heading {
     cursor: pointer;
     font-family: $font-family-display;
+    margin: {
+      bottom: 2px;
+    }
     text-transform: uppercase;
 
     &:hover {
-      background: darken($color-white, 5%);
+      background: darken($color-white, 10%);
     }
   }
 
