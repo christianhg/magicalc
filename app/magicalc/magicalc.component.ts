@@ -1,4 +1,5 @@
 import {Component, OnInit} from 'angular2/core';
+import {NgClass} from 'angular2/common';
 import {Http, Headers, HTTP_PROVIDERS, Response} from 'angular2/http';
 
 import {CardService} from '../card/card.service';
@@ -20,6 +21,9 @@ import * as _ from 'lodash';
     CardService,
     LandService,
     SetService
+  ],
+  directives: [
+    NgClass
   ]
 })
 

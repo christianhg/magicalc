@@ -18,7 +18,7 @@
     }
     text-transform: uppercase;
 
-    .closed & {
+    .isClosed & {
       &:hover {
         background: darken($color-white, 10%);
         cursor: pointer;
@@ -28,5 +28,11 @@
 
   &--body {
 
+  }
+
+  &.isOpen {
+    div {
+      background: darken($color-white, 10%);
+    }
   }
 }

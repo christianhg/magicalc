@@ -1,7 +1,7 @@
 <h1>ohai world, this is {{title}}</h1>
 
 <div class="calculations">
-  <div class="calculation" [class.closed]="!landsWithMostColorIdentities">
+  <div class="calculation" [ngClass]="{isOpen: landsWithMostColorIdentities, isClosed: !landsWithMostColorIdentities}">
     <div class="calculation--heading" (click)="getLandsWithMostColorIdentities()">Lands with most color identities</div>
     <div class="calculation--body" *ngIf="landsWithMostColorIdentities">
       <ol>
@@ -11,7 +11,7 @@
       </ol>
     </div>
   </div>
-  <div class="calculation" [class.closed]="!cardsWithHighestCMC">
+  <div class="calculation" [ngClass]="{isOpen: cardsWithHighestCMC, isClosed: !cardsWithHighestCMC}">
     <div class="calculation--heading" (click)="getCardsWithHighestCMC()">
       Card with highest CMC
     </div>
@@ -21,7 +21,7 @@
       </ul>
     </div>
   </div>
-  <div class="calculation" [class.closed]="!cardsWithLongestName">
+  <div class="calculation" [ngClass]="{isOpen: cardsWithLongestName, isClosed: !cardsWithLongestName}">
     <div class="calculation--heading" (click)="getCardsWithLongestName()">
       Cards with longst name
     </div>
@@ -31,7 +31,7 @@
       </ol>
     </div>
   </div>
-  <div class="calculation" [class.closed]="!cardsWithMostText">
+  <div class="calculation" [ngClass]="{isOpen: cardsWithMostText, isClosed: !cardsWithMostText}">
     <div class="calculation--heading" (click)="getCardsWithMostText()">
       Cards with most text
     </div>
@@ -41,7 +41,7 @@
       </ol>
     </div>
   </div>
-  <div class="calculation" [class.closed]="!cardsWithMostPower">
+  <div class="calculation" [ngClass]="{isOpen: cardsWithMostPower, isClosed: !cardsWithMostPower}">
     <div class="calculation--heading" (click)="getCardsWithMostPower()">
       Cards with most power
     </div>
@@ -51,7 +51,7 @@
       </ol>
     </div>
   </div>
-  <div class="calculation" [class.closed]="!cardsWithHighestCMC">
+  <div class="calculation" [ngClass]="{isOpen: cardsWithHighestCMC, isClosed: !cardsWithHighestCMC}">
     <div class="calculation--heading" (click)="getCardsWithHighestPMR()">
       Cards with highest PMR (Power/Mana Ratio)
     </div>
@@ -61,7 +61,7 @@
       </ol>
     </div>
   </div>
-  <div class="calculation" [class.closed]="!randomCards">
+  <div class="calculation" [ngClass]="{isOpen: randomCards, isClosed: !randomCards}">
     <div class="calculation--heading" (click)="getRandomCards()">
       Random cards
     </div>
