@@ -1,69 +1,79 @@
 <h1>ohai world, this is {{title}}</h1>
 
-<dl *ngIf="landsWithMostColorIdentities">
-  <dt>Lands with most color identities</dt>
-  <dd>
-    <ol>
-      <li *ngFor="#land of landsWithMostColorIdentities">
-        {{land.name}} (<span *ngFor="#colorIdentity of land.colorIdentity">{{colorIdentity}}</span>)
-      </li>
-    </ol>
-  </dd>
-</dl>
-
-<dl *ngIf="cardsWithHighestCMC">
-  <dt>Card with highest CMC</dt>
-  <dd>
-    <ul>
-      <li *ngFor="#card of cardsWithHighestCMC">{{card.name}} ({{card.cmc}})</li>
-    </ul>
-  </dd>
-</dl>
-
-<dl *ngIf="cardsWithLongestName">
-  <dt>Cards with longst name</dt>
-  <dd>
-    <ol>
-      <li *ngFor="#card of cardsWithLongestName">{{card.name}} ({{card.name.length}})</li>
-    </ol>
-  </dd>
-</dl>
-
-<dl *ngIf="cardsWithMostText">
-  <dt>Cards with most text</dt>
-  <dd>
-    <ol>
-      <li *ngFor="#card of cardsWithMostText">{{card.name}} ({{card.text}})</li>
-    </ol>
-  </dd>
-</dl>
-
-<dl *ngIf="cardsWithMostPower">
-  <dt>Cards with most power</dt>
-  <dd>
-    <ol>
-      <li *ngFor="#card of cardsWithMostPower">{{card.name}} ({{card.power}})</li>
-    </ol>
-  </dd>
-</dl>
-
-<dl *ngIf="cardsWithHighestPMR">
-  <dt>Cards with highest PMR (Power-Mana Ratio)</dt>
-  <dd>
-    <ol>
-      <li *ngFor="#card of cardsWithHighestPMR">{{card.name}} ({{card.power}}/{{card.cmc}} = {{card.pmr}})</li>
-    </ol>
-  </dd>
-</dl>
-
-<dl *ngIf="randomCards">
-  <dt>Random cards</dt>
-  <dd>
-    <dl *ngFor="#card of randomCards">
-      <dt>{{card.name}}</dt>
-      <dd>
-        <pre>{{card | json}}</pre>
-      </dd>
-    </dl>
-  </dd>
-</dl>
+<div class="calculations">
+  <div class="calculation">
+    <div class="calculation--heading" (click)="getLandsWithMostColorIdentities()">Lands with most color identities</div>
+    <div class="calculation--body" *ngIf="landsWithMostColorIdentities">
+      <ol>
+        <li *ngFor="#land of landsWithMostColorIdentities">
+          {{land.name}} (<span *ngFor="#colorIdentity of land.colorIdentity">{{colorIdentity}}</span>)
+        </li>
+      </ol>
+    </div>
+  </div>
+  <div class="calculation">
+    <div class="calculation--heading" (click)="getCardsWithHighestCMC()">
+      Card with highest CMC
+    </div>
+    <div class="calculation--body" *ngIf="cardsWithHighestCMC">
+      <ul>
+        <li *ngFor="#card of cardsWithHighestCMC">{{card.name}} ({{card.cmc}})</li>
+      </ul>
+    </div>
+  </div>
+  <div class="calculation">
+    <div class="calculation--heading" (click)="getCardsWithLongestName()">
+      Cards with longst name
+    </div>
+    <div class="calculation--body" *ngIf="cardsWithLongestName">
+      <ol>
+        <li *ngFor="#card of cardsWithLongestName">{{card.name}} ({{card.name.length}})</li>
+      </ol>
+    </div>
+  </div>
+  <div class="calculation">
+    <div class="calculation--heading" (click)="getCardsWithMostText()">
+      Cards with most text
+    </div>
+    <div class="calculation--body" *ngIf="cardsWithMostText">
+      <ol>
+        <li *ngFor="#card of cardsWithMostText">{{card.name}} ({{card.text}})</li>
+      </ol>
+    </div>
+  </div>
+  <div class="calculation">
+    <div class="calculation--heading" (click)="getCardsWithMostPower()">
+      Cards with most power
+    </div>
+    <div class="calculation--body" *ngIf="cardsWithMostPower">
+      <ol>
+        <li *ngFor="#card of cardsWithMostPower">{{card.name}} ({{card.power}})</li>
+      </ol>
+    </div>
+  </div>
+  <div class="calculation">
+    <div class="calculation--heading" (click)="getCardsWithHighestPMR()">
+      Cards with highest PMR (Power-Mana Ratio)
+    </div>
+    <div class="calculation--body" *ngIf="cardsWithHighestPMR">
+      <ol>
+        <li *ngFor="#card of cardsWithHighestPMR">{{card.name}} ({{card.power}}/{{card.cmc}} = {{card.pmr}})</li>
+      </ol>
+    </div>
+  </div>
+  <div class="calculation">
+    <div class="calculation--heading">
+      Random cards
+    </div>
+    <div class="calculation--body" *ngIf="randomCards">
+      <div class="card" *ngFor="#card of randomCards">
+        <div class="card--name">
+          {{card.name}}
+        </div>
+        <div class="card--data">
+          <pre>{{card | json}}</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

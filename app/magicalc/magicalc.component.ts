@@ -40,16 +40,9 @@ export class MagicalcComponent implements OnInit {
     private setService: SetService) { }
 
   public ngOnInit(): void {
-    this.getCardsWithMostPower();
-    this.getCardsWithLongestName();
-    this.getCardsWithMostText();
-    this.getCardsWithHighestCMC();
-    this.getCardsWithHighestPMR();
-    this.getRandomCards();
-    this.getLandsWithMostColorIdentities();
   }
 
-  public getCards(): void {
+  private getCards(): void {
     this.cardService.getCards()
       .subscribe(
         (cards: Card[]) => {
@@ -79,7 +72,7 @@ export class MagicalcComponent implements OnInit {
       );
   }
 
-  private getCardsWithLongestName(): void {
+  public getCardsWithLongestName(): void {
     this.cardService.getCardsWithLongestName()
       .subscribe(
         (cards: Card[]) => {
@@ -94,7 +87,7 @@ export class MagicalcComponent implements OnInit {
       );
   }
 
-  private getCardsWithMostText(): void {
+  public getCardsWithMostText(): void {
     this.cardService.getCardsWithMostText()
       .subscribe(
         (cards: Card[]) => {
@@ -109,7 +102,7 @@ export class MagicalcComponent implements OnInit {
       );
   }
 
-  private getCardsWithMostPower(): void {
+  public getCardsWithMostPower(): void {
     this.cardService.getCardsWithMostPower()
       .subscribe(
         (cards: Card[]) => {
@@ -124,7 +117,7 @@ export class MagicalcComponent implements OnInit {
       );
   }
 
-  private getCardsWithHighestCMC(): void {
+  public getCardsWithHighestCMC(): void {
     this.cardService.getCardsWithHighestCMC()
       .subscribe(
         (cards: Card[]) => {
@@ -139,7 +132,7 @@ export class MagicalcComponent implements OnInit {
       );
   }
 
-  private getCardsWithHighestPMR(): void {
+  public getCardsWithHighestPMR(): void {
     this.cardService.getCardsWithHighestPMR()
       .subscribe(
         (cards: Card[]) => {
@@ -154,7 +147,7 @@ export class MagicalcComponent implements OnInit {
       );
   }
 
-  private getLandsWithMostColorIdentities(): void {
+  public getLandsWithMostColorIdentities(): void {
     this.landService.getLandsWithMostColorIdentities()
       .subscribe(
         (lands: Land[]) => {
