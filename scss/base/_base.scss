@@ -12,3 +12,16 @@ body {
   font-weight: $font-weight-normal;
   line-height: $line-height-base;
 }
+
+h1 {
+  font-family: $font-family-display;
+  font-size: $font-size-base * 1.5;
+  letter-spacing: 0.1em;
+  line-height: 3;
+  text-transform: uppercase;
+}
+
+.site {
+  margin: 0 auto;
+  max-width: 500px;
+}
