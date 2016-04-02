@@ -1,0 +1,23 @@
+.calculation {
+  & > div {
+    background: $color-white;
+    margin: {
+      bottom: 3px;
+    }
+    padding: 10px;
+  }
+
+  &--heading {
+    cursor: pointer;
+    font-family: $font-family-display;
+    text-transform: uppercase;
+
+    &:hover {
+      background: darken($color-white, 5%);
+    }
+  }
+
+  &--body {
+
+  }
+}
