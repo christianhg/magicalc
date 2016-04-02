@@ -18,7 +18,7 @@ h1 {
   font-family: $font-family-display;
   font-size: $font-size-base * 1.5;
   letter-spacing: 0.1em;
-  line-height: 3;
+  padding: $line-height-base 0;
   text-transform: uppercase;
 }
 
