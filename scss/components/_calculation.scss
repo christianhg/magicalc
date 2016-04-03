@@ -19,9 +19,9 @@
     text-transform: uppercase;
 
     .isClosed & {
+      cursor: pointer;
       &:hover {
         background: darken($color-white, 10%);
-        cursor: pointer;
       }
     }
   }
