@@ -11,6 +11,8 @@ import {Land} from '../land/land';
 import {SetService} from '../set/set.service';
 import {Set} from '../set/set';
 
+import {SearchComponent} from '../search/search.component';
+
 import * as _ from 'lodash';
 
 @Component({
@@ -23,7 +25,8 @@ import * as _ from 'lodash';
     SetService
   ],
   directives: [
-    NgClass
+    NgClass,
+    SearchComponent
   ]
 })
 

@@ -1,0 +1,11 @@
+label {
+  display: none;
+}
+
+input {
+  border: 1px solod $color-purple;
+  color: $color-purple;
+  font-size: $font-size-base;
+  padding: $line-height-base / 2 10px;
+  width: 100%;
+}
