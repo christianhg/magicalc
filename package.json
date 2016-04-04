@@ -23,7 +23,7 @@
     "node-sass": "^3.4.2",
     "onchange": "^2.2.0",
     "typescript": "^1.8.9",
-    "typings": "^0.7.9"
+    "typings": "^0.7.12"
   },
   "dependencies": {
     "angular2": "2.0.0-beta.13",
