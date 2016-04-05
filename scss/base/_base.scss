@@ -13,46 +13,8 @@ body {
   line-height: $line-height-base;
 }
 
-h1 {
-  color: $color-white;
-  font-family: $font-family-display;
-  font-size: $font-size-base * 1.5;
-  letter-spacing: 0.1em;
-  padding: $line-height-base 0;
-  text-transform: uppercase;
-}
-
 .site {
   margin: 0 auto;
   max-width: 500px;
   padding: 0 20px;
-}
-
-pre {
-  white-space: pre-wrap;
-}
-
-li {
-  margin-bottom: $line-height-base / 2;
-  padding: 0 0 0 15px;
-  position: relative;
-
-  &:before {
-    background: $color-purple;
-    content: "";
-    display: inline-block;
-    height: 2px;
-    left: 5px;
-    position: absolute;
-    width: 5px;
-    top: $line-height-base / 2;
-  }
-
-  &:last-child {
-    margin-bottom: 0;
-  }
-}
-
-strong {
-  font-weight: $font-weight-bold;
 }
