@@ -31,5 +31,4 @@ $ npm start
 ## TODO
 - Create backend to cache dataset
 - Implement testing framework
-- Implement stylings
-- Improve basic markup and create basic styling
+- Create an actual design
