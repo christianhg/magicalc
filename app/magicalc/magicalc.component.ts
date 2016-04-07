@@ -57,18 +57,20 @@ export class MagicalcComponent implements OnInit {
   }
 
   private getNoOfSorceries(): void {
-    this.sorceryService.getNoOfSorceries()
-      .subscribe(
-        (count: number) => {
-          this.noOfSorceries = count;
-        },
-        (error) => {
-          console.log(error);
-        },
-        () => {
-          console.log('Completed counting no. of Sorceries');
-        }
-      )
+    if (!this.noOfSorceries) {
+      this.sorceryService.getNoOfSorceries()
+        .subscribe(
+          (count: number) => {
+            this.noOfSorceries = count;
+          },
+          (error) => {
+            console.log(error);
+          },
+          () => {
+            console.log('Completed counting no. of Sorceries');
+          }
+        );
+    }
   }
 
   private getCards(): void {
