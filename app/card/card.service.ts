@@ -17,7 +17,7 @@ export class CardService {
     if(!this.cardsObservable) {
       this.cardsObservable = this.http.get('http://mtgjson.com/json/AllCards.json')
         .map((res: Response) => {
-          return _.values(res.json());
+          return <Card[]>_.values(res.json());
         });
     }
     return this.cardsObservable;
