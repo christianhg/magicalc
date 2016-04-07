@@ -1,6 +1,14 @@
 <h1>ohai world, this is {{title}}</h1>
 <search></search>
 <div class="calculations">
+  <div class="calculation" [ngClass]="{isOpen: noOfSorceries, isClosed: !noOfSorceries}">
+    <div class="calculation--heading" (click)="getNoOfSorceries()">
+      No. of Sorceries
+    </div>
+    <div class="calculation--body" *ngIf="noOfSorceries">
+      {{noOfSorceries}}
+    </div>
+  </div>
   <div class="calculation" [ngClass]="{isOpen: landsWithMostColorIdentities, isClosed: !landsWithMostColorIdentities}">
     <div class="calculation--heading" (click)="getLandsWithMostColorIdentities()">Lands with most color identities</div>
     <div class="calculation--body" *ngIf="landsWithMostColorIdentities">

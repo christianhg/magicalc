@@ -11,6 +11,9 @@ import {Land} from '../land/land';
 import {SetService} from '../set/set.service';
 import {Set} from '../set/set';
 
+import {SorceryService} from '../sorcery/sorcery.service';
+import {Sorcery} from '../sorcery/sorcery';
+
 import {SearchComponent} from '../search/search.component';
 
 import * as _ from 'lodash';
@@ -22,7 +25,8 @@ import * as _ from 'lodash';
     HTTP_PROVIDERS,
     CardService,
     LandService,
-    SetService
+    SetService,
+    SorceryService
   ],
   directives: [
     NgClass,
@@ -40,13 +44,31 @@ export class MagicalcComponent implements OnInit {
   public cardsWithHighestPMR: Card[];
   public randomCards: Card[];
   public landsWithMostColorIdentities: Land[];
+  public noOfSorceries: number;
 
   constructor(
     private cardService: CardService,
     private landService: LandService,
-    private setService: SetService) { }
+    private setService: SetService,
+    private sorceryService: SorceryService) { }
 
   public ngOnInit(): void {
+
+  }
+
+  private getNoOfSorceries(): void {
+    this.sorceryService.getNoOfSorceries()
+      .subscribe(
+        (count: number) => {
+          this.noOfSorceries = count;
+        },
+        (error) => {
+          console.log(error);
+        },
+        () => {
+          console.log('Completed counting no. of Sorceries');
+        }
+      )
   }
 
   private getCards(): void {
