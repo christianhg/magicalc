@@ -22,4 +22,11 @@ export class SetService {
     }
     return this.setsObservable;
   }
+
+  public getNoOfSets(): Observable<number> {
+    return this.getSets()
+      .map((sets: Set[]) => {
+        return sets.length;
+      });
+  }
 }

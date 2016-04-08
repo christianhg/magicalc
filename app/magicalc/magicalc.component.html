@@ -1,6 +1,14 @@
 <h1>ohai world, this is {{title}}</h1>
 <search></search>
 <div class="calculations">
+  <div class="calculation" [ngClass]="{isOpen: noOfSets, isClosed: !noOfSets}">
+    <div class="calculation--heading" (click)="getNoOfSets()">
+      No. of Sets
+    </div>
+    <div class="calculation--body" *ngIf="noOfSets">
+      {{noOfSets}}
+    </div>
+  </div>
   <div class="calculation" [ngClass]="{isOpen: noOfSorceries, isClosed: !noOfSorceries}">
     <div class="calculation--heading" (click)="getNoOfSorceries()">
       No. of Sorceries

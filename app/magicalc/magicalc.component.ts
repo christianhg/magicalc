@@ -45,6 +45,7 @@ export class MagicalcComponent implements OnInit {
   public randomCards: Card[];
   public landsWithMostColorIdentities: Land[];
   public noOfSorceries: number;
+  public noOfSets: number;
 
   constructor(
     private cardService: CardService,
@@ -54,6 +55,23 @@ export class MagicalcComponent implements OnInit {
 
   public ngOnInit(): void {
 
+  }
+
+  private getNoOfSets(): void {
+    if (!this.noOfSets) {
+      this.setService.getNoOfSets()
+        .subscribe(
+          (count: number) => {
+            this.noOfSets = count;
+          },
+          (error) => {
+            console.log(error);
+          },
+          () => {
+            console.log('Completed counting no. of Sets');
+          }
+        );
+    }
   }
 
   private getNoOfSorceries(): void {
