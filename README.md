@@ -29,6 +29,7 @@ $ npm start
 ```
 
 ## TODO
+- Use a build system instead of `npm` scripts
 - Create backend to cache dataset
 - Implement testing framework
 - Create an actual design
