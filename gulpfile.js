@@ -85,7 +85,7 @@ gulp.task('dev', ['build'], function() {
     }
   });
 
-  gulp.watch(['./app/**/*', './index.html', './scss/**/*'], ['reload']);
+  gulp.watch(['app/**/*', 'index.html', 'scss/**/*'], ['reload']);
 });
 
 gulp.task('reload', ['build'], browserSync.reload);
