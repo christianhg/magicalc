@@ -5,6 +5,9 @@ import {Http, Headers, HTTP_PROVIDERS, Response} from 'angular2/http';
 import {CardService} from '../card/card.service';
 import {Card} from '../card/card';
 
+import {CreatureService} from '../creature/creature.service';
+import {Creature} from '../creature/creature';
+
 import {LandService} from '../land/land.service';
 import {Land} from '../land/land';
 
@@ -24,6 +27,7 @@ import * as _ from 'lodash';
   providers: [
     HTTP_PROVIDERS,
     CardService,
+    CreatureService,
     LandService,
     SetService,
     SorceryService
@@ -44,17 +48,36 @@ export class MagicalcComponent implements OnInit {
   public cardsWithHighestPMR: Card[];
   public randomCards: Card[];
   public landsWithMostColorIdentities: Land[];
+  public noOfCreatures: number;
   public noOfSorceries: number;
   public noOfSets: number;
 
   constructor(
     private cardService: CardService,
+    private creatureService: CreatureService,
     private landService: LandService,
     private setService: SetService,
     private sorceryService: SorceryService) { }
 
   public ngOnInit(): void {
 
+  }
+
+  private getNoOfCreatures(): void {
+    if (!this.noOfCreatures) {
+      this.creatureService.getNoOfCreatures()
+        .subscribe(
+          (count: number) => {
+            this.noOfCreatures = count;
+          },
+          (error) => {
+            console.log(error);
+          },
+          () => {
+            console.log('Completed counting no. of Creatures');
+          }
+        );
+    }
   }
 
   private getNoOfSets(): void {
