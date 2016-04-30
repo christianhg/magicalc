@@ -21,8 +21,8 @@
     <div class="calculation--heading" (click)="getLandsWithMostColorIdentities()">Lands with most color identities</div>
     <div class="calculation--body" *ngIf="landsWithMostColorIdentities">
       <ol>
-        <li *ngFor="#land of landsWithMostColorIdentities">
-          {{land.name}} (<span *ngFor="#colorIdentity of land.colorIdentity">{{colorIdentity}}</span>)
+        <li *ngFor="let land of landsWithMostColorIdentities">
+          {{land.name}} (<span *ngFor="let colorIdentity of land.colorIdentity">{{colorIdentity}}</span>)
         </li>
       </ol>
     </div>
@@ -33,7 +33,7 @@
     </div>
     <div class="calculation--body" *ngIf="cardsWithHighestCMC">
       <ul>
-        <li *ngFor="#card of cardsWithHighestCMC">{{card.name}} ({{card.cmc}})</li>
+        <li *ngFor="let card of cardsWithHighestCMC">{{card.name}} ({{card.cmc}})</li>
       </ul>
     </div>
   </div>
@@ -43,7 +43,7 @@
     </div>
     <div class="calculation--body" *ngIf="cardsWithLongestName">
       <ol>
-        <li *ngFor="#card of cardsWithLongestName">{{card.name}} ({{card.name.length}})</li>
+        <li *ngFor="let card of cardsWithLongestName">{{card.name}} ({{card.name.length}})</li>
       </ol>
     </div>
   </div>
@@ -53,7 +53,7 @@
     </div>
     <div class="calculation--body" *ngIf="cardsWithMostText">
       <ol>
-        <li *ngFor="#card of cardsWithMostText">{{card.name}} ({{card.text}})</li>
+        <li *ngFor="let card of cardsWithMostText">{{card.name}} ({{card.text}})</li>
       </ol>
     </div>
   </div>
@@ -63,7 +63,7 @@
     </div>
     <div class="calculation--body" *ngIf="cardsWithMostPower">
       <ol>
-        <li *ngFor="#card of cardsWithMostPower">{{card.name}} ({{card.power}})</li>
+        <li *ngFor="let card of cardsWithMostPower">{{card.name}} ({{card.power}})</li>
       </ol>
     </div>
   </div>
@@ -73,7 +73,7 @@
     </div>
     <div class="calculation--body" *ngIf="cardsWithHighestPMR">
       <ol>
-        <li *ngFor="#card of cardsWithHighestPMR">{{card.name}} ({{card.power}}/{{card.cmc}} = {{card.pmr}})</li>
+        <li *ngFor="let card of cardsWithHighestPMR">{{card.name}} ({{card.power}}/{{card.cmc}} = {{card.pmr}})</li>
       </ol>
     </div>
   </div>
@@ -82,7 +82,7 @@
       Random cards
     </div>
     <div class="calculation--body" *ngIf="randomCards">
-      <div class="card" *ngFor="#card of randomCards">
+      <div class="card" *ngFor="let card of randomCards">
         <div class="card--name">
           {{card.name}}
         </div>
