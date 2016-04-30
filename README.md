@@ -17,6 +17,12 @@ Coming soon...
 ## Credits
 __magicalc__ relies on the brilliant JSON dataset provided by [MTG JSON](http://mtgjson.com/).
 
+## Prerequisites
+- [Gulp](http://gulpjs.com/)
+- [Node](http://nodejs.org/)
+- [NPM](https://www.npmjs.org/)
+- [SASS](http://sass-lang.com)
+
 ## Development
 Installs necessary dependencies:
 ```
@@ -25,11 +31,10 @@ $ npm install
 
 Runs TypeScript compiler, starts the server, launches the browser and watches for changes:
 ```
-$ npm start
+$ gulp serve
 ```
 
 ## TODO
-- Use a build system instead of `npm` scripts
 - Create backend to cache dataset
 - Implement testing framework
 - Create an actual design

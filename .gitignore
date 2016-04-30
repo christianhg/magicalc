@@ -1,8 +1,7 @@
-node_modules
-typings
-
+.sass-cache
 app/**/*.js
 app/**/*.js.map
+dist
+node_modules
 npm-debug.log
-
-styles.css
+typings

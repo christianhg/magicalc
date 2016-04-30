@@ -7,21 +7,20 @@
   },
   "version": "0.0.1",
   "scripts": {
-    "start": "concurrently \"npm run tsc:w\" \"npm run lite\" \"npm run scss\" \"npm run watch:scss\"",
-    "tsc": "tsc",
-    "tsc:w": "tsc -w",
-    "lite": "lite-server",
-    "scss": "node-sass --output-style compressed scss/styles.scss styles.css",
-    "typings": "typings",
-    "postinstall": "typings install",
-    "watch:scss": "onchange 'scss/**/*.scss' -- npm run scss"
+    "postinstall": "typings install"
   },
   "license": "MIT",
   "devDependencies": {
-    "concurrently": "^2.0.0",
-    "lite-server": "^2.2.0",
-    "node-sass": "^3.4.2",
-    "onchange": "^2.2.0",
+    "browser-sync": "^2.12.5",
+    "del": "^2.2.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-ruby-sass": "^2.0.6",
+    "gulp-sourcemaps": "^2.0.0-alpha",
+    "gulp-tslint": "^5.0.0",
+    "gulp-typescript": "^2.13.0",
+    "tslint": "^3.8.1",
     "typescript": "^1.8.9",
     "typings": "^0.7.12"
   },
