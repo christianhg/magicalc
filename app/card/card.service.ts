@@ -85,6 +85,19 @@ export class CardService {
       });
   }
 
+  public getCardsWithMostTypes(): Observable<Card[]> {
+    return this.getCards()
+      .map((cards: Card[]) => {
+        return _.sortByOrder(cards, (card: Card) => {
+          return _.size(card.types);
+        }, 'desc');
+      })
+      .map((cards: Card[]) => {
+        console.log(cards);
+        return _.slice(cards, 0, 10);
+      });
+  }
+
   public getCardsWithHighestPMR(): Observable<Card[]> {
     return this.getCards()
       .map((cards: Card[]) => {

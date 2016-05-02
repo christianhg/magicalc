@@ -45,6 +45,7 @@ export class MagicalcComponent implements OnInit {
   public cardsWithLongestName: Card[];
   public cardsWithMostText: Card[];
   public cardsWithMostPower: Card[];
+  public cardsWithMostTypes: Card[];
   public cardsWithHighestPMR: Card[];
   public randomCards: Card[];
   public landsWithMostColorIdentities: Land[];
@@ -196,6 +197,24 @@ export class MagicalcComponent implements OnInit {
         );
     }
   }
+
+  public getCardsWithMostTypes(): void {
+    if (!this.cardsWithMostTypes) {
+      this.cardService.getCardsWithMostTypes()
+        .subscribe(
+          (cards: Card[]) => {
+            this.cardsWithMostTypes = cards;
+          },
+          (error) => {
+            console.log(error);
+          },
+          () => {
+            console.log('completed');
+          }
+        );
+    }
+  }
+
 
   public getCardsWithHighestCMC(): void {
     if (!this.cardsWithHighestCMC) {
