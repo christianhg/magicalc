@@ -1,6 +1,6 @@
-import {Component, OnInit} from 'angular2/core';
-import {NgClass} from 'angular2/common';
-import {Http, Headers, HTTP_PROVIDERS, Response} from 'angular2/http';
+import {Component, OnInit} from '@angular/core';
+import {NgClass} from '@angular/common';
+import {Http, Headers, HTTP_PROVIDERS, Response} from '@angular/http';
 
 import {CardService} from '../card/card.service';
 import {Card} from '../card/card';

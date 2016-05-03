@@ -15,16 +15,14 @@ const vendor = {
   fonts: [
   ],
   js: [
-    'node_modules/es6-shim/es6-shim.min.js',
-    'node_modules/systemjs/dist/system-polyfills.js',
-    'node_modules/angular2/es6/dev/src/testing/shims_for_IE.js',
-    'node_modules/angular2/bundles/angular2-polyfills.js',
-    'node_modules/systemjs/dist/system.src.js',
-    'node_modules/rxjs/bundles/Rx.js',
-    'node_modules/angular2/bundles/angular2.dev.js',
-    'node_modules/angular2/bundles/router.dev.js',
-    'node_modules/angular2/bundles/http.dev.js',
-    'node_modules/lodash/index.js',
+    'node_modules/@angular/**/*',
+    'node_modules/angular2-in-memory-web-api/**/*',
+    'node_modules/rxjs/**/*',
+    'node_modules/es6-shim/**/*',
+    'node_modules/zone.js/**/*',
+    'node_modules/reflect-metadata/**/*',
+    'node_modules/systemjs/**/*',
+    'node_modules/lodash/**/*'
   ],
 };
 
@@ -33,8 +31,8 @@ gulp.task('clean', function() {
 });
 
 gulp.task('vendorJS', ['clean'], function() {
-  return gulp.src(vendor.js)
-    .pipe(gulp.dest('./dist/vendor'));
+  return gulp.src(vendor.js, {'base': '.'})
+    .pipe(gulp.dest('./dist'));
 });
 
 gulp.task('vendor', ['vendorJS']);
@@ -57,6 +55,11 @@ gulp.task('scss', ['clean'], function() {
     .pipe(gulp.dest('./dist/css'));
 });
 
+gulp.task('systemjs', ['clean'], function() {
+  return gulp.src('./systemjs.config.js')
+    .pipe(gulp.dest('./dist'));
+});
+
 gulp.task('tslint', function() {
   return gulp.src('./app/**/*.ts')
     .pipe(tslint())
@@ -74,7 +77,7 @@ gulp.task('typescript', ['clean', 'tslint'], function() {
     .pipe(gulp.dest('./dist/app'));
 });
 
-gulp.task('build', ['html', 'index', 'scss', 'typescript', 'vendor']);
+gulp.task('build', ['html', 'index', 'systemjs', 'scss', 'typescript', 'vendor']);
 
 gulp.task('default', ['build']);
 
