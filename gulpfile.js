@@ -1,7 +1,7 @@
 const autoprefixer = require('gulp-autoprefixer');
 const browserSync = require('browser-sync');
+const clean = require('gulp-clean');
 const concat = require('gulp-concat');
-const del = require('del');
 const gulp = require('gulp');
 const sass = require('gulp-ruby-sass');
 const sourcemaps = require('gulp-sourcemaps');
@@ -27,7 +27,8 @@ const vendor = {
 };
 
 gulp.task('clean', function() {
-  return del('dist/**/*');
+  return gulp.src('dist', {read: false})
+    .pipe(clean());
 });
 
 gulp.task('vendorJS', ['clean'], function() {
