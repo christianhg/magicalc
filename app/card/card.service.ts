@@ -54,6 +54,24 @@ export class CardService {
       });
   }
 
+  public getCardsWithLeastText(): Observable<Card[]> {
+    return this.getCards()
+      .map((cards: Card[]) => {
+        return _.filter(cards, (card: Card) => {
+          return !_.isEmpty(card.text);
+        });
+      })
+      .map((cards: Card[]) => {
+        return _.sortByOrder(cards, (card: Card) => {
+          return card.text.length;
+        }, 'asc');
+      })
+      .map((cards: Card[]) => {
+        console.log(cards);
+        return _.slice(cards, 0, 10);
+      });
+  }
+
   public getCardsWithMostPower(): Observable<Card[]> {
     return this.getCards()
       .map((cards: Card[]) => {

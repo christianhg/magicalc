@@ -43,6 +43,7 @@ export class MagicalcComponent implements OnInit {
   public cards: Card[];
   public cardsWithHighestCMC: Card[];
   public cardsWithLongestName: Card[];
+  public cardsWithLeastText: Card[];
   public cardsWithMostText: Card[];
   public cardsWithMostPower: Card[];
   public cardsWithMostToughness: Card[];
@@ -160,6 +161,23 @@ export class MagicalcComponent implements OnInit {
           },
           () => {
             console.log('completed');
+          }
+        );
+    }
+  }
+
+  public getCardsWithLeastText(): void {
+    if (!this.cardsWithLeastText) {
+      this.cardService.getCardsWithLeastText()
+        .subscribe(
+          (cards: Card[]) => {
+            this.cardsWithLeastText = cards;
+          },
+          (error) => {
+            console.log(error);
+          },
+          () => {
+            console.log('Completed calculating cards with least text');
           }
         );
     }

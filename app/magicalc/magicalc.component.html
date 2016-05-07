@@ -55,6 +55,16 @@
       </ol>
     </div>
   </div>
+  <div class="calculation" [ngClass]="{isOpen: cardsWithLeastText, isClosed: !cardsWithLeastText}">
+    <div class="calculation--heading" (click)="getCardsWithLeastText()">
+      Cards with least text
+    </div>
+    <div class="calculation--body" *ngIf="cardsWithLeastText">
+      <ol>
+        <li *ngFor="let card of cardsWithLeastText">{{card.name}} ({{card.text}})</li>
+      </ol>
+    </div>
+  </div>
   <div class="calculation" [ngClass]="{isOpen: cardsWithMostText, isClosed: !cardsWithMostText}">
     <div class="calculation--heading" (click)="getCardsWithMostText()">
       Cards with most text
