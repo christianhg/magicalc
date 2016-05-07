@@ -16,7 +16,6 @@ const vendor = {
   ],
   js: [
     'node_modules/@angular/**/*',
-    'node_modules/angular2-in-memory-web-api/**/*',
     'node_modules/rxjs/**/*',
     'node_modules/es6-shim/**/*',
     'node_modules/zone.js/**/*',
