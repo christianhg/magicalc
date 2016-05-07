@@ -75,6 +75,16 @@
       </ol>
     </div>
   </div>
+  <div class="calculation" [ngClass]="{isOpen: cardsWithMostToughness, isClosed: !cardsWithMostToughness}">
+    <div class="calculation--heading" (click)="getCardsWithMostToughness()">
+      Cards with most toughness
+    </div>
+    <div class="calculation--body" *ngIf="cardsWithMostToughness">
+      <ol>
+        <li *ngFor="let card of cardsWithMostToughness">{{card.name}} ({{card.toughness}})</li>
+      </ol>
+    </div>
+  </div>
   <div class="calculation" [ngClass]="{isOpen: cardsWithMostTypes, isClosed: !cardsWithMostTypes}">
     <div class="calculation--heading" (click)="getCardsWithMostTypes()">
       Cards with most types

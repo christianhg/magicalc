@@ -70,6 +70,22 @@ export class CardService {
       });
   }
 
+  public getCardsWithMostToughness(): Observable<Card[]> {
+    return this.getCards()
+      .map((cards: Card[]) => {
+        return _.sortByOrder(cards, (card: Card) => {
+          const toughness: number = parseInt(card.toughness);
+          if (toughness && !isNaN(toughness)) {
+            return toughness;
+          }
+          return false;
+        }, 'desc');
+      })
+      .map((cards: Card[]) => {
+        return _.slice(cards, 0, 10);
+      });
+  }
+
   public getCardsWithHighestCMC(): Observable<Card[]> {
     return this.getCards()
       .map((cards: Card[]) => {

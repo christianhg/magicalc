@@ -45,6 +45,7 @@ export class MagicalcComponent implements OnInit {
   public cardsWithLongestName: Card[];
   public cardsWithMostText: Card[];
   public cardsWithMostPower: Card[];
+  public cardsWithMostToughness: Card[];
   public cardsWithMostTypes: Card[];
   public cardsWithHighestPMR: Card[];
   public randomCards: Card[];
@@ -193,6 +194,23 @@ export class MagicalcComponent implements OnInit {
           },
           () => {
             console.log('completed');
+          }
+        );
+    }
+  }
+
+  public getCardsWithMostToughness(): void {
+    if (!this.cardsWithMostPower) {
+      this.cardService.getCardsWithMostToughness()
+        .subscribe(
+          (cards: Card[]) => {
+            this.cardsWithMostToughness = cards;
+          },
+          (error) => {
+            console.log(error);
+          },
+          () => {
+            console.log('Completed calculating cards with most toughness');
           }
         );
     }
