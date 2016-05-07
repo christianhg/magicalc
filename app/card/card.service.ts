@@ -60,7 +60,7 @@ export class CardService {
         return _.sortByOrder(cards, (card: Card) => {
           const power: number = parseInt(card.power);
           if (power && !isNaN(power)) {
-            return card.power;
+            return power;
           }
           return false;
         }, 'desc');
