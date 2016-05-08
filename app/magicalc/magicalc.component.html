@@ -9,6 +9,14 @@
       {{noOfCreatures}}
     </div>
   </div>
+  <div class="calculation" [ngClass]="{isOpen: noOfMythicRares, isClosed: !noOfMythicRares}">
+    <div class="calculation--heading" (click)="getNoOfMythicRares()">
+      No. of Mythic Rares
+    </div>
+    <div class="calculation--body" *ngIf="noOfMythicRares">
+      {{noOfMythicRares}}
+    </div>
+  </div>
   <div class="calculation" [ngClass]="{isOpen: noOfSets, isClosed: !noOfSets}">
     <div class="calculation--heading" (click)="getNoOfSets()">
       No. of Sets

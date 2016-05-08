@@ -52,6 +52,7 @@ export class MagicalcComponent implements OnInit {
   public randomCards: Card[];
   public landsWithMostColorIdentities: Land[];
   public noOfCreatures: number;
+  public noOfMythicRares: number;
   public noOfSorceries: number;
   public noOfSets: number;
 
@@ -78,6 +79,23 @@ export class MagicalcComponent implements OnInit {
           },
           () => {
             console.log('Completed counting no. of Creatures');
+          }
+        );
+    }
+  }
+
+  public getNoOfMythicRares(): void {
+    if (!this.noOfMythicRares) {
+      this.setService.getNoOfMythicRares()
+        .subscribe(
+          (count: number) => {
+            this.noOfMythicRares = count;
+          },
+          (error) => {
+            console.log(error);
+          },
+          () => {
+            console.log('Completed counting no. of Mythic Rares');
           }
         );
     }

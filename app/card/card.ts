@@ -1,4 +1,5 @@
 export interface Card {
+  artist?: string;
   cmc?: number;
   colorIdentity?: string[];
   colors?: string[];
@@ -9,6 +10,7 @@ export interface Card {
   name: string;
   pmr?: number;
   power?: string;
+  rarity?: string;
   subtypes?: string[];
   text: string;
   toughness?: string;
