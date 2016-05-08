@@ -9,19 +9,20 @@ import {Set} from './set';
 @Injectable()
 
 export class SetService {
-  private setsObservable: Observable<Set[]>;
+  private sets: Set[];
 
   constructor(
     private http: Http) { }
 
   public getSets(): Observable<Set[]> {
-    if(!this.setsObservable) {
-      this.setsObservable = this.http.get('http://mtgjson.com/json/AllSetsArray-x.json')
+    if(!this.sets) {
+      return this.http.get('http://mtgjson.com/json/AllSetsArray-x.json')
         .map((res: Response) => {
-          return res.json();
+          this.sets = res.json();
+          return this.sets;;
         });
     }
-    return this.setsObservable;
+    return Observable.of(this.sets);
   }
 
   public getNoOfSets(): Observable<number> {
