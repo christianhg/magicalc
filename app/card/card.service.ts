@@ -128,7 +128,6 @@ export class CardService {
         }, 'desc');
       })
       .map((cards: Card[]) => {
-        console.log(cards);
         return _.slice(cards, 0, 10);
       });
   }
