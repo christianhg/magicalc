@@ -8,19 +8,20 @@ import {Card} from './card';
 @Injectable()
 
 export class CardService {
-  private cardsObservable: Observable<Card[]>;
+  private cards: Card[];
 
   constructor(
     private http: Http) { }
 
   public getCards(): Observable<Card[]> {
-    if(!this.cardsObservable) {
-      this.cardsObservable = this.http.get('http://mtgjson.com/json/AllCards.json')
+    if (!this.cards) {
+      return this.http.get('http://mtgjson.com/json/AllCards.json')
         .map((res: Response) => {
-          return <Card[]>_.values(res.json());
+          this.cards = <Card[]>_.values(res.json());
+          return this.cards;
         });
     }
-    return this.cardsObservable;
+    return Observable.of(this.cards);
   }
 
   public getRandomCards(): Observable<Card[]> {
